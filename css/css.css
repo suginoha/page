@@ -52,3 +52,14 @@ figure figcaption {
 	height: 100%;
 	width: 100%;
 	}
+.mplus1p {
+    font-family: 'M PLUS 1p', sans-serif;
+}
+.Bonbon {
+    font-family: 'Bonbon', cursive;
+    font-size: 200%;
+}
+.Noto {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 200%;
+}
