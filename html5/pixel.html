@@ -3,8 +3,8 @@
   <meta charset="UTF-8">
   <title>html5</title>
 </head>
-<canvas id="canvas" width="800" height="400"></canvas><br>
-<canvas id="canvas2" width="800" height="400"></canvas>
+<canvas id="canvas" width="600" height="400"></canvas><br>
+<canvas id="canvas2" width="600" height="400"></canvas>
 <script>
     var img = new Image();
     img.src = './dresden-5347387_640.jpg';
@@ -35,7 +35,7 @@ function draw(img) {
 
   var loop = function(){
     for (var i = 0; i < 100; i++) {
-        var x = randint(0, 790);
+        var x = randint(0, 590);
         var y = randint(0, 390);
         var pixel = ctx2.getImageData(x, y, 1, 1);
         var data = pixel.data;
@@ -92,6 +92,7 @@ function sound()
 }
 </script>
 <form>
+analogicusによるPixabayからの画像
 <input type="button" value="鉄" onclick="sound()">
 <audio id="sound-file" preload="auto">
 	<source src="./iron.wav" type="audio/wav">
