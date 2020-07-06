@@ -1,39 +1,34 @@
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>html5</title>
+    <meta charset="UTF-8">
+    <title>html5</title>
 </head>
 <canvas id="canvas" width="600" height="400"></canvas><br>
 <canvas id="canvas2" width="600" height="400"></canvas>
 <script>
-    var img = new Image();
-    img.src = './dresden-5347387_640.jpg';
-    //img.src = './test.jpg';
-    img.onload = function() {
-        draw(this);
-    };
+var img = new Image();
+img.src = './dresden-5347387_640.jpg';
+img.onload = function() {
+    draw(this);
+};
 
 function draw(img) {
-    //var canvas = document.getElementById('canvas2');
-    //var ctx = canvas.getContext('2d');
     ctx2.drawImage(img, 0, 0);
     img.style.display = 'none';
+    canvas2.style.display = 'none';
     setInterval(loop, 100);
     //loop();
 };
 
-  var canvas = document.getElementById('canvas');
-  var ctx = canvas.getContext('2d');
-  var canvas2 = document.getElementById('canvas2');
-  var ctx2 = canvas2.getContext('2d');
-  var cx=1;
-  var cy=1;
-  var col = ['#000', '#00f', '#f00', '#f0f', '#0f0','#0ff','#ff0','#fff'];
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var canvas2 = document.getElementById('canvas2');
+var ctx2 = canvas2.getContext('2d');
+var cx=1;
+var cy=1;
+var col = ['#000', '#00f', '#f00', '#f0f', '#0f0','#0ff','#ff0','#fff'];
 
-  //ctx.font = "96px serif";
-  //ctx.strokeText("Hello world", 10, 100);
-
-  var loop = function(){
+var loop = function(){
     for (var i = 0; i < 100; i++) {
         var x = randint(0, 590);
         var y = randint(0, 390);
@@ -43,32 +38,16 @@ function draw(img) {
            ',' + data[2] + ', 1)';
         tile(rgba, x, y, 10);
     }
-  };
-
-  //setInterval(loop, 100);
-/*
-  canvas.addEventListener('mouseup', onMouseUp, false);
-
-function onMouseUp() {
-    var mousePos = getMousePosition(canvas, evt);
-    for (var i = 0; i < 100; i++) {
-        tile(col[randint(0, 8)], randint(0, 790), randint(0, 390));
-    }
-    //alert("ha");
-    alert(mousePos.x);
-}
-*/
+};
 canvas.addEventListener("mouseup", (e) => {
     var rect = e.target.getBoundingClientRect()
     var x = e.clientX - rect.left
     var y = e.clientY - rect.top
     tile(col[randint(0, 8)], x, y, 100);
-    //console.log(`${x}:${y}`)
 });
 
-
 function randint(min, max) {
-  return parseInt(Math.random() * (max - min) + min);
+    return parseInt(Math.random() * (max - min) + min);
 }
 
 function tile(c, x, y, size){
@@ -81,21 +60,8 @@ function tile(c, x, y, size){
     ctx.closePath();
     ctx.fill();
 }
-function sound()
-{
-	var id = 'sound-file' ;
-	if( typeof( document.getElementById( id ).currentTime ) != 'undefined' )
-	{
-		document.getElementById( id ).currentTime = 0;
-	}
-	document.getElementById( id ).play() ;
-}
 </script>
 <form>
 analogicusによるPixabayからの画像
-<input type="button" value="鉄" onclick="sound()">
-<audio id="sound-file" preload="auto">
-	<source src="./iron.wav" type="audio/wav">
-</audio>
 </form>
 </html>
