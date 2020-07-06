@@ -34,13 +34,15 @@ function draw(img) {
   //ctx.strokeText("Hello world", 10, 100);
 
   var loop = function(){
-      var x = randint(0, 790);
-      var y = randint(0, 390);
-      var pixel = ctx2.getImageData(x, y, 1, 1);
-      var data = pixel.data;
-      var rgba = 'rgba(' + data[0] + ',' + data[1] +
+    for (var i = 0; i < 100; i++) {
+        var x = randint(0, 790);
+        var y = randint(0, 390);
+        var pixel = ctx2.getImageData(x, y, 1, 1);
+        var data = pixel.data;
+        var rgba = 'rgba(' + data[0] + ',' + data[1] +
            ',' + data[2] + ', 1)';
-      tile(rgba, x, y, 10);
+        tile(rgba, x, y, 10);
+    }
   };
 
   //setInterval(loop, 100);
