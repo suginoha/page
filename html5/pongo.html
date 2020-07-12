@@ -1,10 +1,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>ポン抜き碁</title>
+    <title>pon nuki go</title>
 </head>
 <canvas id="canvas" width="440" height="440"></canvas>
 <script>
+//　pon nuki go
+// ©︎ 2020 Mitsuaki Suginohara
+//
+// 2020 7/10 発表
+// 改定履歴 2020 07/12 盤面をドット表示からライン表示に変更
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
@@ -551,6 +556,12 @@ function boardWrite(bd){
     ctx.font = "16px serif";
     ctx.fillText(msg, 50, 430);
     tile("#fa3", 40, 40, 360);
+    for (var x = 60; x<=400;x+=40){
+        line("#000", x, 60, x, 380);
+    }
+    for (var y = 60; y<=400;y+=40){
+        line("#000", 60, y, 380, y);
+    }
     for (var x = 0; x < 9; x++) {
         for (var y = 0; y < 9; y++) {
             var p = x+1 + (y+1)*11;
@@ -586,11 +597,18 @@ function circle(c, x, y, size){
     ctx.arc(x, y, size, 0, 2 * Math.PI);
     ctx.fill();
 }
+function line(c, sx, sy, ex, ey){
+    ctx.fillStyle = c;
+    ctx.beginPath();
+    ctx.moveTo(sx, sy);
+    ctx.lineTo(ex, ey);
+    ctx.stroke();
+}
 
 </script>
 <form>
 <br>
-ポン抜きGO<br>
+pon nuki go<br>
 <br>
 石を多く取ったほうが勝ちで、取り方は囲碁と同じです<br>
 30石差が着くと終了になります<br>
@@ -603,5 +621,7 @@ function circle(c, x, y, size){
 <br>
 バグ取り切れていないようで画面がクリアされるかもしれません<br>
 その場合は再読込してみてください<br>
+<br>
+ ©︎ 2020 Mitsuaki Suginohara<br>
 </form>
 </html>
